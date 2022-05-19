@@ -1,9 +1,12 @@
 {
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cjs-loader": "^0.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "uuid": "^8.3.2"
   },
   "name": "pre-final-project-backend",
   "version": "1.0.0",

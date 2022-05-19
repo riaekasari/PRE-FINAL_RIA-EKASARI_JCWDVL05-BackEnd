@@ -3,14 +3,12 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 
-
-
 const app = express();
 
 app.use(express.json({ extended: true }));
 
 const connection = require("./src/config");
-const router = require("./src/routes");
+const user_routes = require("./src/routes/user-routes");
 connection.connect((error) => {
   if (error) {
     console.log("Database connection error: ", error);
@@ -20,7 +18,6 @@ connection.connect((error) => {
     `Database connection is established at ID: ${connection.threadId}`
   );
 });
-
 
 app.use(
   cors({
@@ -35,7 +32,13 @@ app.use(
 
 //   res.send(body);
 // });
-app.use("/users", router.userRouter);
+
+// app.use("/", (req, res) => {
+//     res.send("JAJAJA");
+//   });
+  
+
+app.use("/users", user_routes);
 
 const PORT = 2000;
 app.listen(PORT, () => {
